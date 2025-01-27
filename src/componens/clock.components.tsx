@@ -18,10 +18,10 @@ export class Clock extends React.Component<Props, State> {
   timeId = 0;
 
   handleUTC = () => {
-    this.setState({ today: new Date().toUTCString().slice(-12, -4) });
-
-    // eslint-disable-next-line
-    console.log(this.state.today);
+    this.setState({ today: new Date().toUTCString().slice(-12, -4) }, () => {
+      // eslint-disable-next-line
+      console.log(this.state.today);
+    });
   };
 
   componentDidMount() {
@@ -39,11 +39,8 @@ export class Clock extends React.Component<Props, State> {
     return (
       <div className="Clock">
         <strong className="Clock__name">{clockName}</strong>
-
-        <span className="Clock__time">
-          {text.timeIs}
-          {this.state.today}
-        </span>
+        {text.timeIs}
+        <span className="Clock__time">{this.state.today}</span>
       </div>
     );
   }
