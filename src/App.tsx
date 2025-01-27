@@ -21,7 +21,7 @@ type State = {
 export class App extends React.Component<Props, State> {
   state: Readonly<State> = {
     clockName: 'Clock-0',
-    hasClock: false,
+    hasClock: true,
     intervalId: null,
   };
 
